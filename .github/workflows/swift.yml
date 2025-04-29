@@ -26,8 +26,11 @@ jobs:
           ls -la
           echo "Recursive Listing:"
           ls -R
-          echo "Scheme Listing:"
-          -list
+
+     - name: List Xcode schemes
+       run: |
+         cd Guess-The-Flag
+         xcodebuild -list -project Guess-The-Flag.xcodeproj
      - name: Build for simulator
        run: |
         cd Guess-The-Flag
