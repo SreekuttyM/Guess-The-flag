@@ -36,7 +36,7 @@ jobs:
         cd Guess-The-Flag
         xcodebuild clean build \
         -project Guess-The-Flag.xcodeproj \
-        -scheme Guess-The-flag \
+        -scheme Guess-The-Flag \
         -sdk iphonesimulator \
         -destination 'platform=iOS Simulator,name=iPhone 14' \
         CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO
