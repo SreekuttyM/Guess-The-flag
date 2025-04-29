@@ -26,6 +26,8 @@ jobs:
           ls -la
           echo "Recursive Listing:"
           ls -R
+          echo "Scheme Listing:"
+          -list
      - name: Build for simulator
        run: |
         cd Guess-The-Flag
