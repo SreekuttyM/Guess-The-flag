@@ -15,7 +15,7 @@ jobs:
     - name: Build for simulator
       run: |
         xcodebuild clean build \
-        -project YourProject.xcodeproj \
+        -project Guess-The-Flag.xcodeproj \
         -scheme YourScheme \
         -sdk iphonesimulator \
         -destination 'platform=iOS Simulator,name=iPhone 14' \
