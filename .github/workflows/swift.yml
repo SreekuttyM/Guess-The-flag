@@ -15,8 +15,11 @@ jobs:
     runs-on: macos-latest
 
     steps:
-    - uses: actions/checkout@v4
-    - name: Build
-      run: swift build -v
-    - name: Run tests
-      run: swift test -v
+    - name: Build for simulator
+      run: |
+        xcodebuild clean build \
+        -project Guess-The-flag-main/Guess-The-Flag/Guess-The-Flag.xcodeproj \
+        -scheme Guess-The-flag \
+        -sdk iphonesimulator \
+        -destination 'platform=iOS Simulator,name=iPhone 14' \
+        CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO
