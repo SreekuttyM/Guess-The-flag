@@ -39,4 +39,5 @@ jobs:
         -scheme Guess-The-Flag \
         -sdk iphonesimulator \
         -destination 'platform=iOS Simulator,name=iPhone 14' \
-        CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO
+        CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO \
+        EXCLUDED_ARCHS=arm64
