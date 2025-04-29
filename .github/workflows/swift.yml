@@ -15,11 +15,19 @@ jobs:
     runs-on: macos-latest
 
     steps:
-    - name: List all files
-      run: |
-        ls -R
-    - name: Build for simulator
-      run: |
+     - name: Checkout code
+       uses: actions/checkout@v3
+
+     - name: Show current folder and files
+       run: |
+          echo "Current Directory:"
+          pwd
+          echo "Files and Folders:"
+          ls -la
+          echo "Recursive Listing:"
+          ls -R
+     - name: Build for simulator
+       run: |
         xcodebuild clean build \
         -project Guess-The-Flag.xcodeproj \
         -scheme Guess-The-flag \
