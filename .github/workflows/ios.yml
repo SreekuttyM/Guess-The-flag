@@ -12,11 +12,32 @@ jobs:
     runs-on: macos-latest
 
     steps:
-    - name: Build for simulator
-      run: |
+     - name: Checkout code
+       uses: actions/checkout@v3
+
+     - name: Show current folder and files
+       run: |
+          echo "Current Directory:"
+          pwd
+          echo "Files and Folders:"
+          ls -la
+          echo "Recursive Listing:"
+          ls -R
+
+     - name: List Xcode schemes
+       run: |
+         cd Guess-The-Flag
+         xcodebuild -list -project Guess-The-Flag.xcodeproj
+         
+     - name: Build for simulator
+       run: |
+        cd Guess-The-Flag
         xcodebuild clean build \
-        -project Guess-The-flag-main/Guess-The-Flag/Guess-The-Flag.xcodeproj \
+        -project Guess-The-Flag.xcodeproj \
         -scheme Guess-The-Flag \
         -sdk iphonesimulator \
         -destination 'platform=iOS Simulator,name=iPhone 14' \
-        CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO
+        CODE_SIGNING_REQUIRED=NO \
+        CODE_SIGNING_ALLOWED=NO \
+        CODE_SIGN_IDENTITY="" \
+        EXCLUDED_ARCHS=arm64
