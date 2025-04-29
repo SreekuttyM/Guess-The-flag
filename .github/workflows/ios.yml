@@ -28,6 +28,9 @@ jobs:
        run: |
          cd Guess-The-Flag
          xcodebuild -list -project Guess-The-Flag.xcodeproj
+     - name: Clean DerivedData
+       run: |
+         rm -rf ~/Library/Developer/Xcode/DerivedData  
          
      - name: Build for simulator
        run: |
@@ -40,4 +43,5 @@ jobs:
         CODE_SIGNING_REQUIRED=NO \
         CODE_SIGNING_ALLOWED=NO \
         CODE_SIGN_IDENTITY="" \
-        EXCLUDED_ARCHS=arm64
+        EXCLUDED_ARCHS=arm64 \
+        ONLY_ACTIVE_ARCH=YES
