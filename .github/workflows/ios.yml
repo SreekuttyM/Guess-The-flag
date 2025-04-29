@@ -1,0 +1,22 @@
+name: iOS starter workflow
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    name: Build and Test default scheme using any available iPhone simulator
+    runs-on: macos-latest
+
+    steps:
+    - name: Build for simulator
+      run: |
+        xcodebuild clean build \
+        -project YourProject.xcodeproj \
+        -scheme YourScheme \
+        -sdk iphonesimulator \
+        -destination 'platform=iOS Simulator,name=iPhone 14' \
+        CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO
