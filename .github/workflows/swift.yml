@@ -15,6 +15,9 @@ jobs:
     runs-on: macos-latest
 
     steps:
+    - name: List all files
+      run: |
+        ls -R
     - name: Build for simulator
       run: |
         xcodebuild clean build \
