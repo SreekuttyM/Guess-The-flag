@@ -28,6 +28,7 @@ jobs:
           ls -R
      - name: Build for simulator
        run: |
+        cd Guess-The-Flag
         xcodebuild clean build \
         -project Guess-The-Flag.xcodeproj \
         -scheme Guess-The-flag \
